@@ -11,14 +11,30 @@ datasource db {
 }
 
 model user {
-  id       String  @id @default(auto()) @map("_id") @db.ObjectId
-  name     String
-  email    String  @unique
-  password String?
-  photo    String?
-  role     Roles   @default(ADMIN)
+  id        String   @id @default(auto()) @map("_id") @db.ObjectId
+  name      String
+  email     String   @unique
+  password  String?
+  photo     String?
+  role      Roles    @default(ADMIN)
+  createdAt DateTime @default(now())
+  updateAt  DateTime @updatedAt
 }
 
 enum Roles {
   ADMIN
+}
+
+model product {
+  id          String   @id @default(auto()) @map("_id") @db.ObjectId
+  photo       String
+  name        String
+  subTitle    String
+  description String
+  category    String
+  price       Int
+  rate        Int?
+  isInStock   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updateAt    DateTime @updatedAt
 }

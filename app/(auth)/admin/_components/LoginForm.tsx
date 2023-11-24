@@ -11,6 +11,7 @@ import { useForm } from "react-hook-form";
 import z from "zod";
 import ErrorMessage from "@/app/components/shared/ErrorMessage";
 import Image from "next/image";
+import Link from "next/link";
 
 type UserForm = z.infer<typeof CreateNewUserSchema>;
 
@@ -61,12 +62,13 @@ const LoginForm = () => {
         <Flex
           direction={"column"}
           gap={"5"}
+          justify={"center"}
           className="bg-white border md:w-[500px] sm:w-[400px] w-full"
           p="6"
         >
           <Flex direction={"column"} gap="1">
             <h1 className="text-black font-bold text-xl">Login</h1>
-            <p className="text-gray-500">Log in using your Account !</p>
+            <p className="text-gray-500">Login using your Account ! <Link href="/admin/register" className="font-medium underline">Register here</Link></p>
           </Flex>
           <Flex direction={"column"} gap="4">
             <Flex direction={"column"} gap="1">

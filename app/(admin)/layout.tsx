@@ -2,7 +2,9 @@ import '@radix-ui/themes/styles.css';
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import '../globals.css'
-import { Theme } from '@radix-ui/themes';
+import { Flex, Theme } from '@radix-ui/themes';
+import SideBar from './_components/SideBar';
+import Header from './_components/Header';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -21,7 +23,13 @@ export default function RootLayout({
       <body className={inter.className}>
         <Theme>
           <main>
-            {children}
+            <Flex>
+              <SideBar />
+              <Flex direction={"column"} p="6" gap="6" className='w-full'>
+                <Header />
+                {children}
+              </Flex>
+            </Flex>
           </main>
         </Theme>
       </body>
