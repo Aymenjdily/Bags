@@ -12,7 +12,7 @@ const SideBar = () => {
 
 
   return (
-    <Flex p="6" direction={"column"} gap="6" className='min-h-screen shadow-lg border-r'>
+    <Flex p="6" direction={"column"} gap="6" className='min-h-screen bg-gray-50 shadow-lg border-r'>
         <Flex align={"center"} justify={"center"} gap="2">
             <Image
                 src="/assets/logo.png"

@@ -8,6 +8,8 @@ import Pagination from '../_components/Pagination'
 
 export interface ProductsQuery {
   page: string
+  status: string
+  name: string
 }
 
 interface Props {
@@ -16,8 +18,13 @@ interface Props {
 
 const ProductsPage =  async ({ searchParams }: Props) => {
   const page = parseInt(searchParams.page) || 1
+  const status = searchParams.status === "in" ? true : (searchParams.status === "out" ? false : undefined);
+
   const pageSize = 10
   const products = await prisma.product.findMany({
+    where: {
+      isInStock: status,
+    },
     skip: (page - 1) * pageSize,
     take: pageSize,
   });
@@ -30,8 +37,7 @@ const ProductsPage =  async ({ searchParams }: Props) => {
         <h1 className='font-bold text-gray-600'>
           Product LIst
         </h1>
-        <Cards />
-        <Filters />
+        <Cards products={products} />
         <ProductsTable products={products} />
         <Pagination itemCount={productsCount} pageSize={pageSize} currentPage={page} />
       </Flex>

@@ -20,7 +20,7 @@ export async function PATCH(request: NextRequest, { params } : { params: { id: s
         return NextResponse.json({ error:"This Product doesn't exists" }, { status:401 })
     }
 
-    const { image, name, subTitle, description, price, category } = body
+    const { image, name, subTitle, description, price, category, isInStock } = body
 
     const updatedProduct = await prisma.product.update({
         where: {
@@ -32,7 +32,8 @@ export async function PATCH(request: NextRequest, { params } : { params: { id: s
             subTitle: subTitle,
             description: description,
             price: price,
-            category: category
+            category: category,
+            isInStock: isInStock
         }
     })
 

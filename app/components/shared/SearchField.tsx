@@ -6,13 +6,15 @@ import { IoSearch } from "react-icons/io5";
 
 type Props = {
   placeHolder: string;
+  search: string;
+  onValueChange: any
 };
 
-const SearchField = ({ placeHolder }: Props) => {
+const SearchField = ({ placeHolder, search, onValueChange }: Props) => {
   return (
     <Flex className="w-full">
       <TextField.Root size="3" className="w-full">
-        <TextField.Input type="text" placeholder={placeHolder} />
+        <TextField.Input value={search} onChange={(e) => onValueChange(e.target.value)} type="text" placeholder={placeHolder} />
       </TextField.Root>
     </Flex>
   );

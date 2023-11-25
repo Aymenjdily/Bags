@@ -27,6 +27,7 @@ export default function RootLayout({
               <SideBar />
               <Flex direction={"column"} p="6" gap="6" className='w-full'>
                 <Header />
+                <div className='w-full bg-gray-300 h-[1px]' />
                 {children}
               </Flex>
             </Flex>

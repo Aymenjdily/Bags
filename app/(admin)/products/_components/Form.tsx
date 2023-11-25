@@ -13,6 +13,7 @@ import ErrorMessage from "@/app/components/shared/ErrorMessage";
 import { CreateProductSchema } from "@/app/Validations";
 import { BagsCategories } from "@/constants";
 import { product } from "@prisma/client";
+import classNames from "classnames";
 
 type ProductForm = z.infer<typeof CreateProductSchema>;
 
@@ -31,6 +32,7 @@ const ProductForm = ({ product }: Props) => {
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState("");
   const [category, setCategory] = useState("");
+  const [inStock, setInSTOCK] = useState(product?.isInStock);
 
   const {
     register,
@@ -49,13 +51,14 @@ const ProductForm = ({ product }: Props) => {
         const response = await axios.patch(`/api/product/${product.id}`, {
           ...data,
           image: imageUrl || product.photo,
-          category: category || product.category
-        })
-        if(response.status === 201){
-          reset()
-          setSuccess(true)
-          router.push('/products')
-          router.refresh()
+          category: category || product.category,
+          isInStock: inStock
+        });
+        if (response.status === 201) {
+          reset();
+          setSuccess(true);
+          router.push("/products");
+          router.refresh();
         }
       } else {
         const response = await axios.post("/api/product", {
@@ -192,6 +195,37 @@ const ProductForm = ({ product }: Props) => {
             </TextField.Root>
             <ErrorMessage>{errors.price?.message}</ErrorMessage>
           </Flex>
+          {product && (
+            <Flex direction="column" gap="2">
+              <label htmlFor="state" className="text-sm font-medium">
+                State
+              </label>
+              <Flex align={"center"} gap="3">
+                <button
+                  type="button"
+                  className={classNames({
+                    "btn ": true,
+                    "btn-success text-white": inStock,
+                    "btn-outline btn-success": !inStock,
+                  })}
+                  onClick={() => setInSTOCK(true)}
+                >
+                  In stock
+                </button>
+                <button
+                  type="button"
+                  className={classNames({
+                    "btn ": true,
+                    "btn-error text-white": !inStock,
+                    "btn-outline btn-error": inStock,
+                  })}
+                  onClick={() => setInSTOCK(false)}
+                >
+                  Out of stock
+                </button>
+              </Flex>
+            </Flex>
+          )}
         </Flex>
         <Flex>
           <button
