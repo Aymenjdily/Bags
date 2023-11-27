@@ -6,13 +6,14 @@ import Link from "next/link";
 import { MdOutlineSettings, MdLogout } from "react-icons/md";
 
 const Header = () => {
+  
   return (
     <header className="">
       <Flex justify={"between"} align={"center"}>
         <Flex align="center" gap="1">
           <h1 className="font-bold">Welcome back,</h1>
           <p className="text-redColor font-semibold capitalize">
-            user name
+            Aymen Jdily
           </p>
         </Flex>
         <Flex>

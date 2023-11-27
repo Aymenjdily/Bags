@@ -16,8 +16,8 @@ const Cards = ({ products }: Props) => {
 
   return (
     <section>
-      <Flex align={"center"} gap="3">
-        <Card style={{ maxWidth: 240 }}>
+      <Flex align={"center"} gap="3" wrap="wrap">
+        <Card className="sm:w-[250px] w-full">
           <Flex gap="3" align="center" p="5" className="bg-gray-50">
             <Flex>
               <MdOutlineShoppingCart className="text-3xl" />
@@ -32,7 +32,7 @@ const Cards = ({ products }: Props) => {
             </Box>
           </Flex>
         </Card>
-        <Card style={{ maxWidth: 240 }}>
+        <Card className="sm:w-[250px] w-full">
           <Flex gap="3" align="center" p="5" className="bg-gray-50">
             <Flex>
               <LuBox className="text-3xl" />
@@ -47,7 +47,7 @@ const Cards = ({ products }: Props) => {
             </Box>
           </Flex>
         </Card>
-        <Card style={{ maxWidth: 240 }}>
+        <Card className="sm:w-[250px] w-full">
           <Flex gap="3" align="center" p="5" className="bg-gray-50">
             <Flex>
               <SlHandbag className="text-3xl" />

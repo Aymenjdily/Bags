@@ -13,3 +13,11 @@ export const CreateProductSchema = z.object({
     price: z.number(),
     rate: z.number().max(5).optional()
 })
+
+export const CreateOrderSchema = z.object({
+    total: z.number(),
+    firstName: z.string().min(3, 'you name is required').max(255),
+    secondName: z.string().min(3, 'your family name is required').max(255),
+    email: z.string().email('email is required'),
+    phone: z.string().min(6, 'phone is required').max(12)
+})

@@ -37,4 +37,28 @@ model product {
   isInStock   Boolean  @default(true)
   createdAt   DateTime @default(now())
   updateAt    DateTime @updatedAt
+  order       order[]  @relation("OrderProducts", fields: [orderId], references: [id])
+  orderId     String[] @db.ObjectId
+}
+
+model order {
+  id         String    @id @default(auto()) @map("_id") @db.ObjectId
+  products   product[] @relation("OrderProducts", fields: [productsId], references: [id])
+  productsId String[]  @db.ObjectId
+  total      Int
+  firstName  String
+  secondName String
+  email      String
+  phone      String
+  city       String
+  address    String
+  state      Status    @default(PENDING)
+  createdAt  DateTime  @default(now())
+  updateAt   DateTime  @updatedAt
+}
+
+enum Status {
+  PENDING
+  DELIVERED
+  CANCELED
 }

@@ -5,6 +5,7 @@ import '../globals.css'
 import { Flex, Theme } from '@radix-ui/themes';
 import SideBar from './_components/SideBar';
 import Header from './_components/Header';
+import MobileNavigation from './_components/MobileNavigation';
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -27,6 +28,7 @@ export default function RootLayout({
               <SideBar />
               <Flex direction={"column"} p="6" gap="6" className='w-full'>
                 <Header />
+                <MobileNavigation />
                 <div className='w-full bg-gray-300 h-[1px]' />
                 {children}
               </Flex>

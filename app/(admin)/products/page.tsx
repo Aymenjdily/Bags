@@ -20,7 +20,7 @@ const ProductsPage =  async ({ searchParams }: Props) => {
   const page = parseInt(searchParams.page) || 1
   const status = searchParams.status === "in" ? true : (searchParams.status === "out" ? false : undefined);
 
-  const pageSize = 10
+  const pageSize = 4
   const products = await prisma.product.findMany({
     where: {
       isInStock: status,
@@ -35,7 +35,7 @@ const ProductsPage =  async ({ searchParams }: Props) => {
     <section>
       <Flex direction={"column"} gap="5">
         <h1 className='font-bold text-gray-600'>
-          Product LIst
+          Products LIst
         </h1>
         <Cards products={products} />
         <ProductsTable products={products} />
