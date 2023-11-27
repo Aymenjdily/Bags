@@ -12,6 +12,13 @@ type Props = {
 }
 
 const Cards = ({ orders }: Props) => {
+    const pendingOrders = orders.filter((order) => {
+        return order.state === "PENDING"
+    })
+
+    const deliveredOrders = orders.filter((order) => {
+        return order.state === "DELIVERED"
+    })
   return (
     <section>
       <Flex align={"center"} gap="3" wrap="wrap">

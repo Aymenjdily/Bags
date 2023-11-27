@@ -2,6 +2,7 @@ import prisma from '@/prisma/client'
 import { Flex } from '@radix-ui/themes'
 import React from 'react'
 import Cards from './_components/Cards'
+import OrdersTable from './_components/Table'
 
 const OrdersPage = async () => {
   const orders = await prisma.order.findMany({
@@ -17,6 +18,7 @@ const OrdersPage = async () => {
           Orders List
         </h1>
         <Cards orders={orders} />
+        <OrdersTable orders={orders} />
       </Flex>
     </section>
   )
