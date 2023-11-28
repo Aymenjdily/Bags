@@ -6,6 +6,7 @@ import classnames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { MdLogout } from "react-icons/md";
 
 const SideBar = () => {
   const pathName = usePathname();
@@ -48,6 +49,12 @@ const SideBar = () => {
               </Link>
             ))}
           </Flex>
+          <Flex>
+          <button className="btn btn-error text-white w-full">
+            <MdLogout />
+            <span>Log out</span>
+          </button>
+        </Flex>
         </Flex>
       </div>
     </>

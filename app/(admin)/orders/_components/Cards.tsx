@@ -1,24 +1,28 @@
-import { order } from '@prisma/client'
-import { Flex, Card, Box, Text } from '@radix-ui/themes'
-import React from 'react'
-import { FaCheck  } from 'react-icons/fa'
-import { MdOutlineTimer  } from 'react-icons/md'
-import { SlHandbag } from 'react-icons/sl'
+import { order } from "@prisma/client";
+import { Flex, Card, Box, Text } from "@radix-ui/themes";
+import React from "react";
+import { FaCheck } from "react-icons/fa";
+import { MdOutlineTimer } from "react-icons/md";
+import { SlHandbag } from "react-icons/sl";
 import { RiFileList3Line } from "react-icons/ri";
 import { ImCancelCircle } from "react-icons/im";
 
 type Props = {
-    orders: order[]
-}
+  orders: order[];
+};
 
 const Cards = ({ orders }: Props) => {
-    const pendingOrders = orders.filter((order) => {
-        return order.state === "PENDING"
-    })
+  const pendingOrders = orders.filter((order) => {
+    return order.state === "PENDING";
+  });
 
-    const deliveredOrders = orders.filter((order) => {
-        return order.state === "DELIVERED"
-    })
+  const deliveredOrders = orders.filter((order) => {
+    return order.state === "DELIVERED";
+  });
+
+  const canceledOrders = orders.filter((order) => {
+    return order.state === "CANCELED";
+  });
   return (
     <section>
       <Flex align={"center"} gap="3" wrap="wrap">
@@ -44,7 +48,7 @@ const Cards = ({ orders }: Props) => {
             </Flex>
             <Box>
               <Text as="div" size="2" weight="bold">
-                {orders.length}
+                {pendingOrders.length}
               </Text>
               <Text as="div" size="2" color="gray">
                 Pending
@@ -55,11 +59,11 @@ const Cards = ({ orders }: Props) => {
         <Card className="sm:w-[250px] w-full">
           <Flex gap="3" align="center" p="5" className="bg-gray-50">
             <Flex>
-              <FaCheck  className="text-3xl" />
+              <FaCheck className="text-3xl" />
             </Flex>
             <Box>
               <Text as="div" size="2" weight="bold">
-                {orders.length}
+                {deliveredOrders.length}
               </Text>
               <Text as="div" size="2" color="gray">
                 Delivered
@@ -74,7 +78,7 @@ const Cards = ({ orders }: Props) => {
             </Flex>
             <Box>
               <Text as="div" size="2" weight="bold">
-                {orders.length}
+                {canceledOrders.length}
               </Text>
               <Text as="div" size="2" color="gray">
                 Canceled
@@ -84,7 +88,7 @@ const Cards = ({ orders }: Props) => {
         </Card>
       </Flex>
     </section>
-  )
-}
+  );
+};
 
-export default Cards
+export default Cards;
