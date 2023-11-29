@@ -47,7 +47,7 @@ const Filters = ({ search, setSearch }: Props) => {
       </Flex>
       <Link
         href="/products/new"
-        className="w-44 bg-redColor btn border-none text-white btn-ghost mt-5"
+        className="w-44 bg-greenColor btn border-none text-black btn-ghost mt-5"
       >
         New Product
       </Link>

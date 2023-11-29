@@ -33,7 +33,7 @@ const Cards = ({ products }: Props) => {
           </Flex>
         </Card>
         <Card className="sm:w-[250px] w-full">
-          <Flex gap="3" align="center" p="5" className="bg-gray-50">
+          <Flex gap="3" align="center" p="5" className="bg-greenColor">
             <Flex>
               <LuBox className="text-3xl" />
             </Flex>
@@ -48,7 +48,7 @@ const Cards = ({ products }: Props) => {
           </Flex>
         </Card>
         <Card className="sm:w-[250px] w-full">
-          <Flex gap="3" align="center" p="5" className="bg-gray-50">
+          <Flex gap="3" align="center" p="5" className="bg-redColor">
             <Flex>
               <SlHandbag className="text-3xl" />
             </Flex>

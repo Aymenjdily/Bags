@@ -36,10 +36,10 @@ const SideBar = () => {
                 key={link.label}
                 href={link.href}
                 className={classnames({
-                  "px-5 py-3 rounded-xl capitalize hover:bg-redColor duration-300 hover:text-white transition-colors outline-none w-full":
+                  "px-5 py-3 rounded-xl capitalize hover:bg-greenColor duration-300 hover:text-black transition-colors outline-none w-full":
                     true,
                   "-ghost": link.href !== pathName,
-                  "bg-redColor border-none text-white": link.href === pathName,
+                  "bg-greenColor border-none text-black": link.href === pathName,
                 })}
               >
                 <Flex align={"center"} gap="2">
@@ -51,7 +51,7 @@ const SideBar = () => {
           </Flex>
           <Flex>
           <button className="btn btn-error text-white w-full">
-            <MdLogout />
+            <MdLogout className="text-xl" />
             <span>Log out</span>
           </button>
         </Flex>

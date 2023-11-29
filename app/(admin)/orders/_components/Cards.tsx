@@ -42,7 +42,7 @@ const Cards = ({ orders }: Props) => {
           </Flex>
         </Card>
         <Card className="sm:w-[250px] w-full">
-          <Flex gap="3" align="center" p="5" className="bg-gray-50">
+          <Flex gap="3" align="center" p="5" className="bg-orangeColor">
             <Flex>
               <MdOutlineTimer className="text-3xl" />
             </Flex>
@@ -57,7 +57,7 @@ const Cards = ({ orders }: Props) => {
           </Flex>
         </Card>
         <Card className="sm:w-[250px] w-full">
-          <Flex gap="3" align="center" p="5" className="bg-gray-50">
+          <Flex gap="3" align="center" p="5" className="bg-greenColor">
             <Flex>
               <FaCheck className="text-3xl" />
             </Flex>
@@ -72,7 +72,7 @@ const Cards = ({ orders }: Props) => {
           </Flex>
         </Card>
         <Card className="sm:w-[250px] w-full">
-          <Flex gap="3" align="center" p="5" className="bg-gray-50">
+          <Flex gap="3" align="center" p="5" className="bg-redColor">
             <Flex>
               <ImCancelCircle className="text-3xl" />
             </Flex>
