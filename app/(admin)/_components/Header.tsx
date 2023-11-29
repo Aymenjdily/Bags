@@ -12,9 +12,6 @@ const Header = () => {
         <Flex align="center" gap="1">
           <h1 className="font-bold">
             Welcome back,{" "}
-            <span className="text-redColor font-semibold capitalize">
-              Aymen Jdily
-            </span>
           </h1>
         </Flex>
         

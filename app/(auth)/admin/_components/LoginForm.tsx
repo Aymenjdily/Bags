@@ -68,7 +68,7 @@ const LoginForm = () => {
         >
           <Flex direction={"column"} gap="1">
             <h1 className="text-black font-bold text-xl">Login</h1>
-            <p className="text-gray-500">Login using your Account ! <Link href="/admin/register" className="font-medium underline">Register here</Link></p>
+            <p className="text-gray-500">Login using your Account </p>
           </Flex>
           <Flex direction={"column"} gap="4">
             <Flex direction={"column"} gap="1">

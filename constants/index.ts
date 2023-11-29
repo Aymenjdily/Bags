@@ -14,3 +14,8 @@ export const BagsCategories = [
     { label: "Shoulder", value: "shoulder" },
     { label: "Backpacks", value: "back" },
 ]
+
+export const NavLinks = [
+    { label: "Home", href: "/" },
+    { label: "About", href: "/about" },
+]

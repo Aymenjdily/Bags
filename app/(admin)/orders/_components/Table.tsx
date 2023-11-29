@@ -9,6 +9,7 @@ import DeleteModal from "../../_components/DeleteModal";
 import Link from "next/link";
 import { useState } from "react";
 import Filters from "./Filters";
+import OrderModal from "./Modal";
 
 type Props = {
   orders: order[];
@@ -59,6 +60,12 @@ const OrdersTable = ({ orders }: Props) => {
                   {order.state === "PENDING" && (
                     <Badge color="gray">Pending</Badge>
                   )}
+                  {order.state === "DELIVERED" && (
+                    <Badge color="green">Delivered</Badge>
+                  )}
+                  {order.state === "CANCELED" && (
+                    <Badge color="red">Canceled</Badge>
+                  )}
                 </Table.Cell>
                 <Table.Cell>
                   <Flex align={"center"} gap="2">
@@ -68,10 +75,11 @@ const OrdersTable = ({ orders }: Props) => {
                         <span className="text-sm">View</span>
                       </Flex>
                     </Link>
+                    <OrderModal id={order.id} />
                     <DeleteModal
                       id={order.id}
-                      api={"/api/product"}
-                      route={"/products"}
+                      api={"/api/order"}
+                      route={"/orders"}
                     />
                   </Flex>
                 </Table.Cell>

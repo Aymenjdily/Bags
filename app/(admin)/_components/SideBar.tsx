@@ -2,14 +2,31 @@
 
 import { AdminNavigationLinks } from "@/constants";
 import { Flex } from "@radix-ui/themes";
+import axios from "axios";
 import classnames from "classnames";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
+import { useState } from "react";
 import { MdLogout } from "react-icons/md";
 
 const SideBar = () => {
   const pathName = usePathname();
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const router = useRouter();
+
+  const handleLogout = async () => {
+    try {
+      setIsSubmitting(true);
+      const repsonse = await axios.get("/api/user/logout");
+      if (repsonse.status === 201) {
+        router.push("/admin/login");
+        router.refresh();
+      }
+    } catch (error) {
+      setIsSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -39,7 +56,8 @@ const SideBar = () => {
                   "px-5 py-3 rounded-xl capitalize hover:bg-greenColor duration-300 hover:text-black transition-colors outline-none w-full":
                     true,
                   "-ghost": link.href !== pathName,
-                  "bg-greenColor border-none text-black": link.href === pathName,
+                  "bg-greenColor border-none text-black":
+                    link.href === pathName,
                 })}
               >
                 <Flex align={"center"} gap="2">
@@ -50,11 +68,19 @@ const SideBar = () => {
             ))}
           </Flex>
           <Flex>
-          <button className="btn btn-error text-white w-full">
-            <MdLogout className="text-xl" />
-            <span>Log out</span>
-          </button>
-        </Flex>
+            <button
+              onClick={handleLogout}
+              className="btn btn-error text-white w-full"
+            >
+              <MdLogout className="text-xl" />
+              <span>
+                Log out{" "}
+                {isSubmitting && (
+                  <span className="loading loading-spinner loading-xs"></span>
+                )}
+              </span>
+            </button>
+          </Flex>
         </Flex>
       </div>
     </>
