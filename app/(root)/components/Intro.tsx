@@ -1,25 +1,29 @@
-import { Flex } from "@radix-ui/themes";
+import { Box, Flex } from "@radix-ui/themes";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 const Intro = () => {
   return (
-    <Flex px="5" className="max-w-7xl mx-auto py-16 rounded-2xl">
-      <Flex className="bg-beigeColor rounded-l-2xl" p="9" direction={"column"} gap="5">
-        <h1 className="text-[52px] font-bold leading-[55px]"><span className="text-redColor ">Buying</span> Bags Has <br /> Never Been This Easy</h1>
-        <Flex>
-            <Link href="" className="btn btn-neutral text-white">
-                View Collecton
-            </Link>
+    <Flex px="5" className="max-w-7xl mx-auto py-6 rounded-2xl">
+      <Box className="relative w-full h-[50vh]">
+        <Image
+          src="/assets/woman.jpg"
+          alt="womanwith"
+          fill
+          quality={100}
+          className="object-cover rounded-2xl"
+        />
+        <div className="absolute w-full h-full bg-black/50 rounded-2xl" />
+        <Flex className="absolute h-full w-full text-center" p="6" align={"center"} justify={"center"} direction={"column"} gap="5">
+          <h1 className="text-white font-bold text-4xl">
+            <span className="text-redColor">Buying</span> Bags Has Never Been This Easy
+          </h1>
+          <Link href="" className="btn btn-neutral text-white">
+            View Collection
+          </Link>
         </Flex>
-      </Flex>
-      <Flex>
-        <Flex className="bg-greenColor relative flex-1" p="9">
-            <Image src="/assets/woman2.png" alt="womanwith" width={200}
-             height={0} className="object-contain absolute bottom-0" quality={100} />
-        </Flex>
-      </Flex>
+      </Box>
     </Flex>
   );
 };

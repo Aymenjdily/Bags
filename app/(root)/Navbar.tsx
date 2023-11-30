@@ -14,7 +14,7 @@ const Navbar = () => {
   return (
     <nav className="py-6">
       <Flex
-        className="max-w-7xl mx-auto "
+        className="max-w-7xl mx-auto"
         align={"center"}
         justify={"between"}
         gap="3"
