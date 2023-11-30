@@ -9,14 +9,15 @@ const Products = async () => {
   return (
     <Flex
       px="5"
-      className="max-w-7xl mx-auto mt-10"
+      className="max-w-7xl mx-auto py-10"
       direction={"column"}
       gap="6"
+      id="collection"
     >
       <h1 className="text-lg font-semibold">
         {`"${products.length} Results"`}
       </h1>
-      <ProductsList />
+      <ProductsList products={products} />
     </Flex>
   );
 };

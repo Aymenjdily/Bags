@@ -17,5 +17,12 @@ export const BagsCategories = [
 
 export const NavLinks = [
     { label: "Home", href: "/" },
-    { label: "About", href: "/about" },
+    { label: "About", href: "/About" },
+]
+
+export const Gallerie = [
+    { src:"/assets/bags/bag2.jpg" },
+    { src:"/assets/bags/bag4.jpg" },
+    { src:"/assets/bags/bag5.jpg" },
+    { src:"/assets/bags/bag6.jpg" },
 ]

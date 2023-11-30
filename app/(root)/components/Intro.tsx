@@ -19,7 +19,7 @@ const Intro = () => {
           <h1 className="text-white font-bold text-4xl">
             <span className="text-redColor">Buying</span> Bags Has Never Been This Easy
           </h1>
-          <Link href="" className="btn btn-neutral text-white">
+          <Link href="#collection" className="btn btn-neutral text-white">
             View Collection
           </Link>
         </Flex>
