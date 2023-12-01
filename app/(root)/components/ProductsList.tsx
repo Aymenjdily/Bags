@@ -1,14 +1,31 @@
+"use client"
+
+import { useCart } from '@/context/CartContext'
 import { product } from '@prisma/client'
 import { Box, Flex, Grid } from '@radix-ui/themes'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { FaCheck } from "react-icons/fa";
 
 interface Props {
   products: product[]
 }
 
 const ProductsList = ({ products }: Props) => {
+  const { addToCart } = useCart()
+  const [isAdded, setAdded] = useState<any>(null)
+
+  useEffect(() => {
+    setTimeout(() => {
+      setAdded(null)
+    }, 3000);
+  }, [isAdded])
+
+  const handleClick = (id:string) => {
+    setAdded(id === isAdded ? null: id)
+  }
+  
   return (
     <>
       <Grid columns={{ md:"3", sm:"2", initial:"1" }} gap="5">
@@ -41,7 +58,15 @@ const ProductsList = ({ products }: Props) => {
                 <Link href="" className='btn flex-1 text-white'>
                   View Details
                 </Link>
-                <button className='btn flex-1 bg-greenColor text-black hover:bg-greenColor hover:text-black border-none'>
+                <button className='btn flex-1 bg-greenColor text-black hover:bg-greenColor hover:text-black border-none'
+                  onClick={() => {
+                    addToCart(product)
+                    handleClick(product.id)
+                  }}
+                >
+                  { isAdded === product.id && (
+                    <FaCheck />
+                  )}
                   Add to Cart
                 </button>
               </Flex>

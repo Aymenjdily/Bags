@@ -2,10 +2,15 @@ import { Flex } from "@radix-ui/themes";
 import React from "react";
 import ProductsList from "./ProductsList";
 import prisma from "@/prisma/client";
+import { BagsCategories } from "@/constants";
+import { product } from "@prisma/client";
 
-const Products = async () => {
-  const products = await prisma.product.findMany();
+interface Props {
+  products: product[]
+}
 
+
+const Products = async ({ products }: Props) => {
   return (
     <Flex
       px="5"
