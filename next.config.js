@@ -1,9 +1,8 @@
-module.exports = {
-  target: 'serverless', // Enable serverless deployment
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+    images:{
+        domains: ['res.cloudinary.com']
+    }
+}
 
-  // Other Next.js configurations...
-  
-  images: {
-    domains: ['res.cloudinary.com'] // Keep the image domains
-  }
-};
+module.exports = nextConfig
