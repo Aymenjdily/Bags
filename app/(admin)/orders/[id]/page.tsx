@@ -47,7 +47,7 @@ const OrderDetails = async ({ params }: { params: { id: string } }) => {
               <span className="font-bold">{order?.address}</span>
             </Flex>
             <Flex direction={"column"} gap="1">
-              <h1 className="text-sm">State</h1>
+              <h1 className="text-sm">Order State</h1>
               {order?.state === "PENDING" && (
                 <Badge color="gray">Pending</Badge>
               )}
