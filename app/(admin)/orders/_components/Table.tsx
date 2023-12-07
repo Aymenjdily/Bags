@@ -69,7 +69,7 @@ const OrdersTable = ({ orders }: Props) => {
                 </Table.Cell>
                 <Table.Cell>
                   <Flex align={"center"} gap="2">
-                    <Link href="" className="btn btn-sm btn-neutral text-white">
+                    <Link href={`/orders/${order.id}`} className="btn btn-sm btn-neutral text-white">
                       <Flex align={"center"} gap="2">
                         <FaEye />
                         <span className="text-sm">View</span>

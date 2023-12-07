@@ -55,7 +55,7 @@ const ProductsList = ({ products }: Props) => {
                 </p>
               </Flex>
               <Flex mt="3" gap="3">
-                <Link href="" className='btn flex-1 text-white'>
+                <Link href={`/Details/${product.id}`} className='btn flex-1 text-white'>
                   View Details
                 </Link>
                 <button className='btn flex-1 bg-greenColor text-black hover:bg-greenColor hover:text-black border-none'
@@ -64,10 +64,15 @@ const ProductsList = ({ products }: Props) => {
                     handleClick(product.id)
                   }}
                 >
-                  { isAdded === product.id && (
-                    <FaCheck />
-                  )}
-                  Add to Cart
+                  <Flex align={"center"} gap="2">
+                    { isAdded === product.id ? (
+                      <FaCheck />
+                    ) : (
+                      <>
+                        Add to Cart
+                      </>
+                    )}
+                  </Flex>
                 </button>
               </Flex>
             </Flex>

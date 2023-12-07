@@ -92,7 +92,7 @@ const Cart = () => {
                 </button>
             </AlertDialog.Cancel>
             <AlertDialog.Action>
-                <Link href="/" className="btn btn-ghost bg-greenColor text-black">
+                <Link href="/Checkout" className="btn btn-ghost bg-greenColor text-black">
                     Checkout
                 </Link>
             </AlertDialog.Action>

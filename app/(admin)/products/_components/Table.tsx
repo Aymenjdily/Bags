@@ -59,7 +59,7 @@ const ProductsTable = ({ products }: Props) => {
                 </Table.Cell>
                 <Table.Cell>
                   <Flex align={"center"} gap="2">
-                    <Link href="" className="btn btn-sm btn-neutral text-white">
+                    <Link href={`/Details/${product.id}`} className="btn btn-sm btn-neutral text-white">
                       <Flex align={"center"} gap="2">
                         <FaEye />
                         <span className="text-sm">
