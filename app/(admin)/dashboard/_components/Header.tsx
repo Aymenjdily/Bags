@@ -1,6 +1,5 @@
 import { BagsCategories } from "@/constants";
 import prisma from "@/prisma/client";
-import { order, product } from "@prisma/client";
 import { Box, Card, Flex, Text } from "@radix-ui/themes";
 import React from "react";
 import { FaCheck } from "react-icons/fa";
@@ -14,19 +13,19 @@ const Header = async () => {
   const orders = await prisma.order.findMany();
   const products = await prisma.product.findMany();
 
-  const pendingOrders = orders.filter((order: order) => {
+  const pendingOrders = orders.filter((order: any) => {
     return order.state === "PENDING";
   });
 
-  const deliveredOrders = orders.filter((order: order) => {
+  const deliveredOrders = orders.filter((order: any) => {
     return order.state === "DELIVERED";
   });
 
-  const canceledOrders = orders.filter((order: order) => {
+  const canceledOrders = orders.filter((order: any) => {
     return order.state === "CANCELED";
   });
 
-  const InStockProducts = products.filter((product: product) => {
+  const InStockProducts = products.filter((product: any) => {
     return product.isInStock === true;
   });
 
