@@ -1,11 +1,11 @@
-import LoginForm from '../_components/LoginForm'
+import LoginForm from "../_components/LoginForm";
 
 const LoginPage = () => {
   return (
     <>
-        <LoginForm />
+      <LoginForm />
     </>
-  )
-}
+  );
+};
 
-export default LoginPage
+export default LoginPage;
