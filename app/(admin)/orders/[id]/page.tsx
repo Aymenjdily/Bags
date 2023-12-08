@@ -70,7 +70,7 @@ const OrderDetails = async ({ params }: { params: { id: string } }) => {
             </Flex>
             <Flex direction={"column"} gap="1">
               <h1 className="text-sm">Products</h1>
-              <Flex direction={"column"} gap="2" className="font-bold">{order?.products.map((product) => (
+              <Flex direction={"column"} gap="2" className="font-bold">{order?.products.map((product:any) => (
                 <span key={product.id}>
                   {product.name}
                 </span>

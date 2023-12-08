@@ -42,7 +42,7 @@ const OrdersTable = ({ orders }: Props) => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {filteredOrders.map((order) => {
+          {filteredOrders.map((order:any) => {
             return (
               <Table.Row key={order.id} align={"center"}>
                 <Table.Cell>

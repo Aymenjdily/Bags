@@ -38,7 +38,7 @@ const ProductsTable = ({ products }: Props) => {
           </Table.Row>
         </Table.Header>
         <Table.Body>
-          {filteredProducts.map((product) => {
+          {filteredProducts.map((product:any) => {
             const creationDate = new Date(product.createdAt);
             return (
               <Table.Row key={product.id} align={"center"}>

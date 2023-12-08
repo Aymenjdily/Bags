@@ -30,7 +30,7 @@ const ProductsList = ({ products }: Props) => {
     <>
       <Grid columns={{ md:"3", sm:"2", initial:"1" }} gap="5">
         {
-          products.map((product) => (
+          products.map((product:any) => (
             <Flex key={product.id} direction={"column"} p="5" className='bg-gray-50 border rounded-2xl'>
               <Box className='relative w-full h-96'>
                 <Image
