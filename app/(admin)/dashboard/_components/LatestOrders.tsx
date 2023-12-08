@@ -14,7 +14,7 @@ const LatestOrders = async () => {
       <h1 className="font-bold">Latest Orders</h1>
       <Table.Root mt={"3"} variant="surface">
         <TableBody>
-          {orders.map((order) => (
+          {orders.map((order: any) => (
             <Table.Row key={order.id}>
               <Table.Cell>
                 <Flex direction={"column"}>
