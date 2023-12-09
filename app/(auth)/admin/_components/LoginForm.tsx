@@ -2,7 +2,7 @@
 
 import { CreateNewUserSchema } from "@/app/Validations";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Box, Flex, Text, TextField } from "@radix-ui/themes";
+import { Box, Button, Flex, Text, TextField } from "@radix-ui/themes";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import axios from "axios";
@@ -100,9 +100,8 @@ const LoginForm = () => {
             </Flex>
             <Flex>
               <button
-                disabled={isSubmitting}
                 type="submit"
-                className="btn text-white bg-black"
+                className={`btn btn-neutral text-white cursor-pointer`}
               >
                 Login{" "}
                 {isSubmitting && (

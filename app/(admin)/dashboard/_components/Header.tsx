@@ -100,4 +100,6 @@ const Header = async () => {
   );
 };
 
+export const dynamic = 'force-dynamic'
+
 export default Header;

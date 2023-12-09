@@ -31,3 +31,5 @@ export default async function Home({ searchParams }: Props) {
     </Fragment>
   )
 }
+
+export const dynamic = 'force-dynamic'

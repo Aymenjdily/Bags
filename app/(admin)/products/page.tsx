@@ -56,4 +56,6 @@ const ProductsPage = async ({ searchParams }: Props) => {
   );
 };
 
+export const dynamic = 'force-dynamic'
+
 export default ProductsPage;
