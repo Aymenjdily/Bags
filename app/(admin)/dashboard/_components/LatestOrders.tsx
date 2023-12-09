@@ -5,7 +5,7 @@ import React from "react";
 const LatestOrders = async () => {
   const orders = await prisma.order.findMany({
     orderBy: { createdAt: "desc" },
-    take: 5,
+    take: 12
   });
   return (
     <Card className="w-full">
@@ -27,6 +27,12 @@ const LatestOrders = async () => {
               <Table.Cell>
                 {order.state === "PENDING" && (
                   <Badge color="gray">Pending</Badge>
+                )}
+                {order.state === "DELIVERED" && (
+                  <Badge color="green">Delivered</Badge>
+                )}
+                {order.state === "CANCELED" && (
+                  <Badge color="red">Canceled</Badge>
                 )}
               </Table.Cell>
             </Table.Row>

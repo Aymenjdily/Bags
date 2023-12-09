@@ -25,7 +25,7 @@ const DashboardPage = async () => {
   })
 
   return (
-    <Flex gap="5">
+    <Flex gap="5" wrap={{ md:"nowrap", initial:"wrap" }}>
       <Flex direction={"column"} gap="5">
         <Header />
         <OrdersChart delivered={deliverd} pending={pending} canceled={canceled} />

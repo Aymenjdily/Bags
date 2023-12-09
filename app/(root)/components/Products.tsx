@@ -11,6 +11,8 @@ interface Props {
 
 
 const Products = async ({ products }: Props) => {
+  const filteredProducts = products.filter((product) => product.isInStock)
+
   return (
     <Flex
       px="5"
@@ -20,9 +22,9 @@ const Products = async ({ products }: Props) => {
       id="collection"
     >
       <h1 className="text-lg font-semibold">
-        {`"${products.length} Results"`}
+        {`"${filteredProducts.length} Results"`}
       </h1>
-      <ProductsList products={products} />
+      <ProductsList products={filteredProducts} />
     </Flex>
   );
 };

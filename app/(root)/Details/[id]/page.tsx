@@ -15,6 +15,7 @@ const ProductDetail = async ({ params }: { params: { id: string } }) => {
   });
 
   const products = await prisma.product.findMany()
+  const filteredProducts = products.filter((product) => product.isInStock)
 
   return (
     <Flex px="5" className="mx-auto max-w-7xl" align={"center"} justify={"center"} py="9" direction={"column"} gap="9">
@@ -22,7 +23,7 @@ const ProductDetail = async ({ params }: { params: { id: string } }) => {
         <Image src={product?.photo!} alt={product?.name!} width={400} height={0} quality={100} className="rounded-2xl" />
        <ProductDetails product={product!}/>
       </Flex>
-      <ProductsList products={products}/>
+      <ProductsList products={filteredProducts}/>
     </Flex>
   );
 };
